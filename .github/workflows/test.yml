@@ -1,0 +1,19 @@
+name: test wf01
+on : push 
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get code 
+              uses: actions/checkout@v4
+            - name: Install node JS
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+            - name: install dependencies 
+              run: npm ci
+            - name: run test
+              run: npm test 
+
+
+
